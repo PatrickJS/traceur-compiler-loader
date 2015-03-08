@@ -23,7 +23,6 @@ module.exports = function(source, originalSourceMap) {
   var runtime;
   var imports;
 
-
   // Process query and setup options/defaults/forced for Traceur
   extend(options, defaults, loaderUtils.parseQuery(this.query));
 
@@ -43,6 +42,12 @@ module.exports = function(source, originalSourceMap) {
         break;
     }
   });
+
+
+  // relative module names
+  if (options.moduleName) {
+    options.moduleName = loaderUtils.urlToRequest(this.resourcePath, this.context);
+  }
 
   // Move runtime option from options to variable
   runtime = options.runtime;

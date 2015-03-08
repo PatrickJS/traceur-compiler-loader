@@ -46,7 +46,7 @@ module.exports = function(source, originalSourceMap) {
 
   // relative module names
   if (options.moduleName) {
-    options.moduleName = loaderUtils.urlToRequest(this.resourcePath, this.context);
+    options.moduleName = filename; //loaderUtils.urlToRequest(this.resourcePath, this.context);
   }
 
   // Move runtime option from options to variable

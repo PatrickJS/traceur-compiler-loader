@@ -14,6 +14,7 @@ var defaults = {
 };
 
 module.exports = function(source, originalSourceMap) {
+  if (this.cacheable) this.cacheable();
   var filename = loaderUtils.getRemainingRequest(this);
   var content = source;
   var map;
@@ -22,9 +23,6 @@ module.exports = function(source, originalSourceMap) {
   var runtime;
   var imports;
 
-  if (this.cacheable) {
-    this.cacheable();
-  }
 
   // Process query and setup options/defaults/forced for Traceur
   extend(options, defaults, loaderUtils.parseQuery(this.query));
@@ -69,12 +67,23 @@ module.exports = function(source, originalSourceMap) {
 
     // Include runtime after compilation due to generators hoisting the
     // runtime usage to the very top
-    if (runtime) {
-      result = 'require("' + imports + '' + traceur.RUNTIME_PATH + '");' + result;
-    }
 
     // Process source map (if available) and return result
-    if (options.sourceMaps) {
+    if (options.sourceMaps && originalSourceMap) {
+      var node = SourceNode.fromStringWithSourceMap(result, new SourceMapConsumer(originalSourceMap));
+      if (runtime) {
+        node.prepend('require("' + imports + '' + traceur.RUNTIME_PATH + '");');
+      }
+      // node.add(postfix);
+      var newSource = node.toStringWithSourceMap({
+        file: filename
+      });
+      this.callback(null, newSource.code, newSource.map.toJSON());
+    }
+    else if (options.sourceMaps) {
+      if (runtime) {
+        result = 'require("' + imports + '' + traceur.RUNTIME_PATH + '");' + result;
+      }
       map = JSON.parse(compiler.getSourceMap());
       map.sourcesContent = [source];
       this.callback(null, result, map);

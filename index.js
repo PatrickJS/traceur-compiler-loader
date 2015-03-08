@@ -62,7 +62,7 @@ module.exports = function(source, originalSourceMap) {
   // Parse code through Traceur
   try {
     delete options.runtime;
-    var compiler = new traceur.Compiler(options);
+    var compiler = new traceur.NodeCompiler(options);
     result = compiler.compile(content, filename);
 
     // Include runtime after compilation due to generators hoisting the

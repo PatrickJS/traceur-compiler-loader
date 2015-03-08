@@ -2,6 +2,8 @@
 
 var extend = require('extend-object');
 var loaderUtils = require('loader-utils');
+var SourceNode = require("source-map").SourceNode;
+var SourceMapConsumer = require("source-map").SourceMapConsumer;
 var os = require('os');
 var traceur = require('traceur');
 

@@ -1,4 +1,4 @@
-# traceur-compiler-loader 1.0.0
+# traceur-compiler-loader v1.0.6
 Up to date [Traceur](https://github.com/google/traceur-compiler) Compiler 0.0.8x loader for [Webpack](https://webpack.github.io/).
 
 ## Before using

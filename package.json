@@ -1,6 +1,6 @@
 {
   "name": "traceur-compiler-loader",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Up to date Traceur Compiler  loader for Webpack",
   "main": "index.js",
   "license": "MIT",

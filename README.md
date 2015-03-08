@@ -7,11 +7,11 @@ You should manually install "imports-loader" in your project
 
 `$ npm install imports-loader`
 
-By default traceur-loader using 0.0.86 version of traceur, but you can manually install any version from 0.0.8x.
+By default traceur-compiler-loader using 0.0.86 version of traceur, but you can manually install any version from 0.0.8x.
 
 *IMPORTANT*
 ````
-  You should install traceur-compiler before traceur-loader,
+  You should install traceur-compiler before traceur-compiler-loader
   if you want use different version on compiler.
 ````
 
@@ -19,7 +19,7 @@ Add `TRACEUR_RUNTIME` to `module.noParse` in `webpack.config.js`
 
 ```javascript
 var
-  TRACEUR_RUNTIME = require('traceur-loader').runtime;
+  TRACEUR_RUNTIME = require('traceur-compiler-loader').runtime;
 
 module.exports = {
 
@@ -98,7 +98,7 @@ require("traceur?runtime&symbols!./script-file");
 
 ### Runtime path
 Access to the runtime path is available as a direct reference:
-`require('traceur-loader').runtime`.
+`require('traceur-compiler-loader').runtime`.
 
 To view all Traceur options, visit
 [here](https://github.com/google/traceur-compiler/blob/master/src/Options.js).

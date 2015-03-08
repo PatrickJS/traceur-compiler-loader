@@ -1,0 +1,37 @@
+{
+  "name": "traceur-compiler-loader",
+  "version": "1.0.0",
+  "description": "Up to date Traceur Compiler  loader for Webpack",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "PatrickJS <github@gdi2290.com>",
+  "homepage": "https://github.com/gdi2290/traceur-compiler-loader",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gdi2290/traceur-compiler-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gdi2290/traceur-compiler-loader/issues"
+  },
+  "dependencies": {
+    "extend-object": "^1.0.0",
+    "loader-utils": "^0.2.6",
+    "traceur": "~0.0.86"
+  },
+  "keywords": [
+    "traceur-compiler-loader",
+    "traceur-compiler",
+    "webpack-loader",
+    "es6-loader",
+    "es7-loader",
+    "traceur-loader",
+    "webpack",
+    "loader",
+    "traceur",
+    "es6",
+    "es7"
+  ]
+}
